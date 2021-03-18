@@ -1,8 +1,10 @@
-FROM python:alpine
-ARG ATOMICPARSLEY=0
+FROM ubuntu:18.04
+RUN apt-get update && \
+    apt-get install --no-install-recommends -y gcc python3 python3-pip && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+    
 
 RUN mkdir -p /usr/src/app
-RUN if [ $ATOMICPARSLEY == 1 ]; then apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing atomicparsley; ln /usr/bin/atomicparsley /usr/bin/AtomicParsley; fi
 COPY ./requirements.txt /usr/src/app/
 RUN  pip3 install --no-cache-dir -r /usr/src/app/requirements.txt
 COPY ./main.py /usr/src/app/
