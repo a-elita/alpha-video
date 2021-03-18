@@ -1,4 +1,4 @@
 Flask~=0.12.1
 flask-ask
 youtube_dl
-cryptography<2.2 -vvv --no-binary=cryptography
+cryptography<2.2
