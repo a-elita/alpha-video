@@ -6,7 +6,7 @@ RUN apt-get update && \
 
 RUN mkdir -p /usr/src/app
 COPY ./requirements.txt /usr/src/app/
-RUN  pip3 install --no-cache-dir -r /usr/src/app/requirements.txt
+RUN pip3 install -r /usr/src/app/requirements.txt
 COPY ./main.py /usr/src/app/
 
 WORKDIR /usr/src/app
