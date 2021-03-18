@@ -2,7 +2,7 @@ from flask import Flask
 from flask_ask import Ask, question, statement, convert_errors, audio
 from youtube_dl import YoutubeDL
 
-ip = 'the ipv4 address that you find using ip config'
+ip = '127.0.0.1' # SYSTEM IP
 host = 'localhost'  # doesn't require anything else since we're using ngrok
 port = 5000  # may want to check and make sure this port isn't being used by anything else
 
