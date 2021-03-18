@@ -1,3 +1,0 @@
-Flask~=0.12.1
-flask-ask
-youtube_dl
