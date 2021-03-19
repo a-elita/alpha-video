@@ -1,13 +1,24 @@
-from setuptools import setup
+#!/usr/bin/env python
 
-setup(
-    name='youtube-alexa-python',
-    version='1.2.3',
-    packages=[''],
-    url='https://github.com/unofficial-skills/youtube-alexa-python',
-    license='Apache License, Version 2.0',
-    author='ADMIN',
-    author_email='hello@andrewstech.me',
-    packages=['youtube-alexa-python'],
-    description='YouTube for Alexa/Echo device'
-)
+import sys
+import os
+try:
+    from setuptools import setup
+except ImportError:
+    from distutils.core import setup
+
+here = os.path.abspath(os.path.dirname(__file__))
+README = open(os.path.join(here, 'README.rst')).read()
+
+setup(name='youtube_alexa_python',
+      version='1.2.3',
+      description='youtube for alexa',
+      long_description=README,
+      author='andrewstech',
+      author_email='',
+      url='https://github.com/unofficial-skills/youtube-alexa-python',
+      py_modules=['youtube_alexa_python'],
+      scripts=['main.py.py'],
+      license='Apache License, Version 2.0',
+      install_requires=['youtube_dl'],
+     )
