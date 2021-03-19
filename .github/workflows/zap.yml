@@ -33,4 +33,4 @@ jobs:
       run: pipenv install
   
     - name: Zappa deployments
-      run: pipenv run zappa update --all
+      run: pipenv zappa init
