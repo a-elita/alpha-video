@@ -1,4 +1,5 @@
-Flask~=0.12.1
-flask-ask
+Flask==1.1.1
+Flask-Ask-youtube
 youtube_dl
 cryptography<2.2
+Werkzeug==0.16.1
