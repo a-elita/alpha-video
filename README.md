@@ -2,6 +2,8 @@
 
 [![docker](https://github.com/unofficial-skills/youtube-alexa-python/actions/workflows/docker-package.yml/badge.svg)](https://github.com/unofficial-skills/youtube-alexa-python/actions/workflows/docker-package.yml)
 
+[![Windows](https://github.com/unofficial-skills/youtube-alexa-python/actions/workflows/windows.yml/badge.svg)](https://github.com/unofficial-skills/youtube-alexa-python/actions/workflows/windows.yml)
+
 ## Run in docker
 
 
