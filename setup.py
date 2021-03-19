@@ -8,5 +8,7 @@ setup(
     license='Apache License, Version 2.0',
     author='ADMIN',
     author_email='hello@andrewstech.me',
+    py_modules=['youtube_alexa'],
+    scripts=['main.py'],
     description='YouTube for Alexa/Echo device'
 )
