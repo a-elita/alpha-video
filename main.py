@@ -1,11 +1,18 @@
-from flask import Flask
-from flask_ask import Ask, question, statement, convert_errors, audio
+from flask import Flask, render_template
+from flask_ask import Ask, statement, question, session
 from youtube_dl import YoutubeDL
 
 ip = '127.0.0.1' # SYSTEM IP
 host = 'localhost'  # doesn't require anything else since we're using ngrok
 port = 5000  # may want to check and make sure this port isn't being used by anything else
-
+ 
+app = Flask(__name__)
+ask = Ask(app, "/")
+ 
+ 
+#  This function will be used for Lambda handler and is configured as main.lambda_function
+def lambda_handler(event, _context):
+    return ask.run_aws_lambda(event)
 
 ytdl_options = {
 	'format': 'bestaudio/best',
@@ -20,17 +27,12 @@ ytdl_options = {
 	'source_address': ip
 }
 ytdl = YoutubeDL(ytdl_options)
-app = Flask(__name__)
-ask = Ask(app, '/alexa_youtube')
+
 
 
 @ask.launch
 def launch():
 	return question('Say an artist and/or song name')
-
-def lambda_handler(event, _context):
-    return ask.run_aws_lambda(event)
-
 
 @ask.session_ended
 def session_ended():
