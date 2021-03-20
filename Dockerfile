@@ -7,4 +7,4 @@ RUN pip install wheel setuptools
 RUN pip install gunicorn
 RUN pip install -r requirements.txt
 COPY . .
-CMD ["gunicorn", "-b", "0.0.0.0:8000", "main:app"]
+CMD ["gunicorn", "-b", "0.0.0.0:5000", "main:app"]
