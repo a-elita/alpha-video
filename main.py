@@ -2,8 +2,8 @@ from flask import Flask, render_template
 from flask_ask import Ask, statement, question, session
 from youtube_dl import YoutubeDL
 
-ip = '127.0.0.1' # SYSTEM IP
-host = 'localhost'  # doesn't require anything else since we're using ngrok
+ip = '0.0.0.0' # SYSTEM IP
+host = '0.0.0.0'  # doesn't require anything else since we're using ngrok
 port = 5000  # may want to check and make sure this port isn't being used by anything else
  
 app = Flask(__name__)
