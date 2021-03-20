@@ -28,10 +28,16 @@ ask = Ask(app, '/alexa_youtube')
 def launch():
 	return question('Say an artist and/or song name')
 
+def lambda_handler(event, _context):
+    return ask.run_aws_lambda(event)
+
 
 @ask.session_ended
 def session_ended():
 	return "{}", 200
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
 
 @ask.intent('AMAZON.StopIntent')

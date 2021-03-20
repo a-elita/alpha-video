@@ -1,8 +1,6 @@
 aniso8601==1.2.0
 Flask==1.1.1
-flask-ask-youtube==0.9.8
 cryptography==2.1.4
-pyOpenSSL==17.0.0
 PyYAML==3.12
 six==1.11.0
 Werkzeug==0.16.1
