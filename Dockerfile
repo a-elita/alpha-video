@@ -6,5 +6,7 @@ RUN python3 -m pip install pip==9.0.3
 RUN pip install wheel setuptools
 RUN pip install gunicorn
 RUN pip install -r requirements.txt
+RUN cd flask-ask-master
+RUN python setup install
 COPY . .
 CMD ["gunicorn", "-b", "0.0.0.0:8000", "main:app"]
