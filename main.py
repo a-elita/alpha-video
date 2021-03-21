@@ -40,6 +40,10 @@ def session_ended():
 def handle_stop_intent():
 	return statement('Okay')
 
+@ask.intent('AMAZON.CancelIntent')
+def handle_stop_intent():
+	return statement('Okay')
+
 
 @ask.intent('AMAZON.PauseIntent')
 def handle_pause_intent():
