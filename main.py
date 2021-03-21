@@ -4,6 +4,7 @@ from youtube_dl import YoutubeDL
 from werkzeug.exceptions import abort
 import sqlite3
 import logging
+import datetime
 
 ip = '0.0.0.0' # System Ip
 host = '0.0.0.0'  # doesn't require anything else since we're using ngrok
@@ -23,6 +24,13 @@ def get_post(post_id):
         abort(404)
     return post
 
+
+def flask_logger():
+    """creates logging information"""
+    for i in range(100):
+        current_time = datetime.datetime.now().strftime('%H:%M:%S') + "\n"
+        yield current_time.encode()
+        sleep(1)
 
 
 ytdl_options = {
@@ -77,6 +85,12 @@ def delete(id):
     flash('"{}" was successfully deleted!'.format(post['title']))
     return redirect(url_for('index'))
 
+
+
+@APP.route("/log_stream", methods=["GET"])
+def stream():
+    """returns logging information"""
+    return Response(flask_logger(), mimetype="text/plain", content_type="text/event-stream")
 
 ask = Ask(app, '/alexa_youtube')
 
