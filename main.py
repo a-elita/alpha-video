@@ -93,7 +93,7 @@ def stream():
     return Response(flask_logger(), mimetype="text/plain", content_type="text/event-stream")
 
 @app.route("/logs", methods=["GET"])
-def logstream()
+def logstream():
     return render_template('logs.html')
 
 
