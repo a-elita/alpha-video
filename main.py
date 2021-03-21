@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_ask import Ask, question, statement, convert_errors, audio
 from youtube_dl import YoutubeDL
+import logging
 
 ip = '0.0.0.0' # System Ip
 host = '0.0.0.0'  # doesn't require anything else since we're using ngrok
@@ -23,6 +24,7 @@ ytdl = YoutubeDL(ytdl_options)
 app = Flask(__name__)
 ask = Ask(app, '/alexa_youtube')
 
+logging.getLogger('flask_ask').setLevel(logging.DEBUG)
 
 @ask.launch
 def launch():
