@@ -58,6 +58,9 @@ def resume():
 def handle_fallback_intent():
 	return question('you have to start your command with play, search, or look for')
 
+@ask.intent('AMAZON.HelpIntent')
+def handle_help_intent():
+	return question('you have to start your command with play, search, or look for')
 
 @ask.intent('QueryIntent', mapping={'query': 'Query'})
 def handle_query_intent(query):
