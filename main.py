@@ -7,7 +7,7 @@ import logging
 
 ip = '0.0.0.0' # System Ip
 host = '0.0.0.0'  # doesn't require anything else since we're using ngrok
-port = 5001  # may want to check and make sure this port isn't being used by anything else
+port = 5000  # may want to check and make sure this port isn't being used by anything else
 
 def get_db_connection():
     conn = sqlite3.connect('database.db')
