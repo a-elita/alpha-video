@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 from flask import Flask, render_template, request, url_for, flash, redirect
-=======
-from flask import Flask, render_template
->>>>>>> 7c573639db91b49d93525583ba93a2fe7d4e0865
 from flask_ask import Ask, question, statement, convert_errors, audio
 from youtube_dl import YoutubeDL
 from werkzeug.exceptions import abort
@@ -43,7 +39,6 @@ ytdl_options = {
 }
 ytdl = YoutubeDL(ytdl_options)
 app = Flask(__name__)
-<<<<<<< HEAD
 app.config['SECRET_KEY'] = 'dev'
 
 @app.route('/')
@@ -81,18 +76,11 @@ def delete(id):
     conn.close()
     flash('"{}" was successfully deleted!'.format(post['title']))
     return redirect(url_for('index'))
-=======
-
-@app.route('/')
-def index():
-    return render_template('index.html')
->>>>>>> 7c573639db91b49d93525583ba93a2fe7d4e0865
 
 
 ask = Ask(app, '/alexa_youtube')
 
-#logging.getLogger('flask_ask').setLevel(logging.DEBUG)
-
+logging.getLogger('flask_ask').setLevel(logging.DEBUG)
 
 @ask.launch
 def launch():

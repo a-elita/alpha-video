@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<<<<<<< HEAD
     <h1>{% block title %} Welcome to ALPHA-VIDEO playlist manger {% endblock %}</h1>
     {% for post in posts %}
         <a href="{{ url_for('post', post_id=post['id']) }}">
@@ -13,7 +12,4 @@
         </a>
         <hr>
     {% endfor %}
-=======
-    <h1>{% block title %} Welcome to ALPHA-VIDEO {% endblock %}</h1>
->>>>>>> 7c573639db91b49d93525583ba93a2fe7d4e0865
 {% endblock %}
