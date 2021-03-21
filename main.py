@@ -87,10 +87,14 @@ def delete(id):
 
 
 
-@APP.route("/log_stream", methods=["GET"])
+@app.route("/log_stream", methods=["GET"])
 def stream():
     """returns logging information"""
     return Response(flask_logger(), mimetype="text/plain", content_type="text/event-stream")
+
+@app.route("/logs", methods=["GET"])
+def logstream()
+    return render_template('logs.html')
 
 
 
