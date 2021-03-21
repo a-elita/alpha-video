@@ -43,6 +43,10 @@ def handle_stop_intent():
 def handle_pause_intent():
 	return audio('Stopping music').stop()
 
+@ask.intent('AMAZON.ResumeIntent')
+def resume():
+    return audio('Resuming.').resume()
+
 
 @ask.intent('AMAZON.FallbackIntent')
 def handle_fallback_intent():
