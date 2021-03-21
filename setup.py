@@ -11,11 +11,11 @@ here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.rst')).read()
 
 setup(name='youtube_alexa_python',
-      version='1.2.4',
+      version='1.2.5',
       description='youtube for alexa',
       long_description=README,
       author='andrewstech',
-      author_email='',
+      author_email='hello@andrewstech.ne',
       url='https://github.com/unofficial-skills/youtube-alexa-python',
       py_modules=['youtube_alexa_python'],
       scripts=['main.py'],
