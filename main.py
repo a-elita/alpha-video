@@ -92,6 +92,11 @@ def stream():
     """returns logging information"""
     return Response(flask_logger(), mimetype="text/plain", content_type="text/event-stream")
 
+@APP.route("/logs", methods=["GET"])
+def logstream()
+    return render_template('logs.html')
+
+
 ask = Ask(app, '/alexa_youtube')
 
 logging.getLogger('flask_ask').setLevel(logging.DEBUG)
