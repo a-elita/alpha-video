@@ -1,10 +1,13 @@
 from flask import Flask, render_template, request, url_for, flash, redirect
+from pyngrok import ngrok
 from flask_ask import Ask, question, statement, convert_errors, audio
 from youtube_dl import YoutubeDL
 from werkzeug.exceptions import abort
 import sqlite3
 import logging
 import datetime
+import os
+import sys
 
 ip = '0.0.0.0'  # System Ip
 host = '0.0.0.0'  # doesn't require anything else since we're using ngrok
@@ -42,8 +45,12 @@ ytdl_options = {
 ytdl = YoutubeDL(ytdl_options)
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'dev'
-
-
+app.config.from_mapping(
+        BASE_URL="http://localhost:5000",
+)
+port = sys.argv[sys.argv.index("--port") + 1] if "--port" in sys.argv else 5000
+public_url = ngrok.connect(port).public_url
+print(" * ngrok tunnel \"{}\" -> \"http://127.0.0.1:{}\"".format(public_url, port))
 @app.route('/')
 def index():
     conn = get_db_connection()
