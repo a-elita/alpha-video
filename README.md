@@ -8,4 +8,4 @@
 ## Run in docker
 
 
-docker run -d --restart unless-stopped --name youtube-alexa -p 5000:5000 andrewstech/youtube-alexa-python:python
+docker run -d --restart unless-stopped --name alpha-video -p 5000:5000 andrewstech/alpha-video:latest
