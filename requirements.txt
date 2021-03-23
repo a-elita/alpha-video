@@ -6,3 +6,4 @@ six==1.11.0
 Werkzeug==0.16.1
 youtube_dl
 flask-ask
+pyngrok
