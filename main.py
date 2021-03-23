@@ -6,14 +6,16 @@ import sqlite3
 import logging
 import datetime
 
-ip = '0.0.0.0' # System Ip
+ip = '0.0.0.0'  # System Ip
 host = '0.0.0.0'  # doesn't require anything else since we're using ngrok
 port = 5000  # may want to check and make sure this port isn't being used by anything else
+
 
 def get_db_connection():
     conn = sqlite3.connect('database.db')
     conn.row_factory = sqlite3.Row
     return conn
+
 
 def get_post(post_id):
     conn = get_db_connection()
@@ -25,29 +27,22 @@ def get_post(post_id):
     return post
 
 
-def flask_logger():
-    """creates logging information"""
-    for i in range(100):
-        current_time = datetime.datetime.now().strftime('%H:%M:%S') + "\n"
-        yield current_time.encode()
-        sleep(1)
-
-
 ytdl_options = {
-	'format': 'bestaudio/best',
-	'restrictfilenames': False,
-	'noplaylist': False,
-	'nocheckcertificate': True,
-	'ignoreerrors': False,
-	'logtostderr': False,
-	'quiet': True,
-	'no_warnings': True,
-	'default_search': 'auto',
-	'source_address': ip
+    'format': 'bestaudio/best',
+    'restrictfilenames': False,
+    'noplaylist': False,
+    'nocheckcertificate': True,
+    'ignoreerrors': False,
+    'logtostderr': False,
+    'quiet': True,
+    'no_warnings': True,
+    'default_search': 'auto',
+    'source_address': ip
 }
 ytdl = YoutubeDL(ytdl_options)
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'dev'
+
 
 @app.route('/')
 def index():
@@ -75,6 +70,7 @@ def create():
 
     return render_template('create.html')
 
+
 @app.route('/<int:id>/delete', methods=('GET',))
 def delete(id):
     post = get_post(id)
@@ -86,44 +82,40 @@ def delete(id):
     return redirect(url_for('index'))
 
 
-
-@app.route("/log_stream", methods=["GET"])
-def stream():
-    """returns logging information"""
-    return Response(flask_logger(), mimetype="text/plain", content_type="text/event-stream")
-
 @app.route("/logs", methods=["GET"])
 def logstream():
     return render_template('logs.html')
-
 
 
 ask = Ask(app, '/alexa_youtube')
 
 logging.getLogger('flask_ask').setLevel(logging.DEBUG)
 
+
 @ask.launch
 def launch():
-	return question('Say an artist and/or song name')
+    return question('Say an artist and/or song name')
 
 
 @ask.session_ended
 def session_ended():
-	return "{}", 200
+    return "{}", 200
 
 
 @ask.intent('AMAZON.StopIntent')
 def handle_stop_intent():
-	return statement('Okay')
+    return statement('Okay')
+
 
 @ask.intent('AMAZON.CancelIntent')
 def handle_stop_intent():
-	return statement('Okay')
+    return statement('Okay')
 
 
 @ask.intent('AMAZON.PauseIntent')
 def handle_pause_intent():
-	return audio('Stopping music').stop()
+    return audio('Stopping music').stop()
+
 
 @ask.intent('AMAZON.ResumeIntent')
 def resume():
@@ -132,40 +124,43 @@ def resume():
 
 @ask.intent('AMAZON.FallbackIntent')
 def handle_fallback_intent():
-	return question('you have to start your command with play, search, or look for')
+    return question('you have to start your command with play, search, or look for')
+
 
 @ask.intent('AMAZON.HelpIntent')
 def handle_help_intent():
-	return question('you have to start your command with play, search, or look for')
+    return question('you have to start your command with play, search, or look for')
+
 
 @ask.intent('QueryIntent', mapping={'query': 'Query'})
 def handle_query_intent(query):
 
-	if not query or 'query' in convert_errors:
-		return question('Say an artist and/or song name')
+    if not query or 'query' in convert_errors:
+        return question('Say an artist and/or song name')
 
-	data = ytdl.extract_info(f"ytsearch:{query}", download=False)
-	search_results = data['entries']
+    data = ytdl.extract_info(f"ytsearch:{query}", download=False)
+    search_results = data['entries']
 
-	if not search_results:
-		return question('no results found, try another search query')
+    if not search_results:
+        return question('no results found, try another search query')
 
-	result = search_results[0]
-	song_name = result['title']
-	channel_name = result['uploader']
+    result = search_results[0]
+    song_name = result['title']
+    channel_name = result['uploader']
 
-	for format_ in result['formats']:
-		if format_['ext'] == 'm4a':
-			mp3_url = format_['url']
-			return audio(f'now playing {song_name} by {channel_name}').play(mp3_url)
+    for format_ in result['formats']:
+        if format_['ext'] == 'm4a':
+            mp3_url = format_['url']
+            return audio(f'now playing {song_name} by {channel_name}').play(mp3_url)
 
-	return question('no results found, try another search query')
+    return question('no results found, try another search query')
 
 
 @app.route('/<int:post_id>')
 def post(post_id):
     post = get_post(post_id)
     return render_template('post.html', post=post)
+
 
 @app.route('/<int:id>/edit', methods=('GET', 'POST'))
 def edit(id):
@@ -187,5 +182,6 @@ def edit(id):
             return redirect(url_for('index'))
 
     return render_template('edit.html', post=post)
+
 
 app.run(host=host, port=port)
