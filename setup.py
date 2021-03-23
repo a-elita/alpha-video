@@ -8,7 +8,8 @@ except ImportError:
     from distutils.core import setup
 
 here = os.path.abspath(os.path.dirname(__file__))
-README = open(os.path.join(here, 'README.rst')).read()
+with open(os.path.join(here, 'README.rst')) as f:
+    README = f.read()
 
 setup(name='youtube_alexa_python',
       version='1.2.5',
