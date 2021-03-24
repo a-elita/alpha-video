@@ -8,4 +8,4 @@
 ## Run in docker
 
 
-docker run -d --restart unless-stopped --name alpha-video -p 5000:5000 andrewstech/alpha-video:latest
+docker run -d --restart unless-stopped --name alpha-video -p 5000:5000 -e token=12345 andrewstech/alpha-video:latest
