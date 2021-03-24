@@ -42,6 +42,8 @@ ytdl_options = {
     'default_search': 'auto',
     'source_address': ip
 }
+conf.get_default().auth_token = os.environ['token']
+token = os.environ['token']
 ytdl = YoutubeDL(ytdl_options)
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'dev'
@@ -50,6 +52,7 @@ app.config.from_mapping(
 )
 port = sys.argv[sys.argv.index("--port") + 1] if "--port" in sys.argv else 5000
 public_url = ngrok.connect(port).public_url
+print("Running with ngrok token: %s" % tokem)
 print(" * ngrok tunnel \"{}\" -> \"http://127.0.0.1:{}\"".format(public_url, port))
 @app.route('/')
 def index():
