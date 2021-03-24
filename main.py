@@ -42,7 +42,7 @@ ytdl_options = {
     'default_search': 'auto',
     'source_address': ip
 }
-conf.get_default().auth_token = os.environ['token']
+ngrok.set_auth_token = os.environ['token']
 token = os.environ['token']
 ytdl = YoutubeDL(ytdl_options)
 app = Flask(__name__)
