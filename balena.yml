@@ -1,0 +1,25 @@
+name: alpha-video
+type: sw.application
+description: >-
+  YouTube for your alexa device
+assets:
+  repository:
+    type: blob.asset
+    data:
+      url: 'https://github.com/unofficial-skills/youtube-alexa-python'
+  logo:
+    type: blob.asset
+    data:
+      url: >-
+        https://cdn.discord.me/server/e2392934dda84f1ccd0a192c3260708b164effe38c6b7c3ed4048570e385530f/icon_589eaf8a0b4b64df99a191840ce0e12177cc82b20b724d78991de031ea8f8c5e.jpg
+data:
+  defaultDeviceType: raspberry-pi
+  supportedDeviceTypes:
+    - raspberry-pi
+    - raspberry-pi2
+    - raspberrypi4
+    - raspberrypi3
+    - raspberrypi4-64
+    - fincm3
+    - intel-nuc
+version: 3.5.2
