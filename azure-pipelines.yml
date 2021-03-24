@@ -1,5 +1,5 @@
 trigger:
-  - documentation
+  - setup
 
 pool:
   vmImage: 'ubuntu-latest'
