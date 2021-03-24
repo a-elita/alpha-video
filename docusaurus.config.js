@@ -1,13 +1,13 @@
 module.exports = {
-  title: 'ALPHA VIDEO - Voiceflow Edition',
-  tagline: 'Youtube on Alexa - Voiceflow Edition',
-  url: 'https://youtube-alexa.voiceflow.andrewstech.me',
+  title: 'ALPHA VIDEO - Python Edition',
+  tagline: 'Youtube on Alexa - Python Edition',
+  url: 'https://alpha-video.andrewstech.me',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'unofficial-skills', // Usually your GitHub org/user name.
-  projectName: 'ALPHA-VIDEO-2021', // Usually your repo name.
+  projectName: 'alpha-video', // Usually your repo name.
   themeConfig: {
     gtag: {
       trackingID: 'G-GBCRXFKRY8',
@@ -29,7 +29,7 @@ module.exports = {
         },
         {to: 'blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/unofficial-skills/ALPHA-VIDEO-2021',
+          href: 'https://github.com/unofficial-skills/alpha-video',
           label: 'GitHub',
           position: 'right',
         },
@@ -93,13 +93,13 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/unofficial-skills/ALPHA-VIDEO-2021/edit/documentation',
+            'https://github.com/unofficial-skills/alpha-video/edit/setup',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/unofficial-skills/ALPHA-VIDEO-2021/edit/documentation/',
+            'https://github.com/unofficial-skills/alpha-video/edit/setup',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
