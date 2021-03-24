@@ -52,7 +52,7 @@ app.config.from_mapping(
 )
 port = sys.argv[sys.argv.index("--port") + 1] if "--port" in sys.argv else 5000
 public_url = ngrok.connect(port).public_url
-print("Running with ngrok token: %s" % tokem)
+print("Running with ngrok token: %s" % token)
 print(" * ngrok tunnel \"{}\" -> \"http://127.0.0.1:{}\"".format(public_url, port))
 @app.route('/')
 def index():
