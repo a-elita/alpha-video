@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, url_for, flash, redirect
+from flask import Flask, render_template, request, url_for, flash, redirect, Response
 from pyngrok import ngrok
+from pygtail import Pygtail
 from flask_ask import Ask, question, statement, convert_errors, audio
 from youtube_dl import YoutubeDL
 from werkzeug.exceptions import abort
@@ -8,11 +9,15 @@ import logging
 import datetime
 import os
 import sys
+import time
 
 ip = '0.0.0.0'  # System Ip
 host = '0.0.0.0'  # doesn't require anything else since we're using ngrok
 port = 5000  # may want to check and make sure this port isn't being used by anything else
 
+LOG_FILE = 'app.log'
+log = logging.getLogger('__name__')
+logging.basicConfig(filename=LOG_FILE, level=logging.DEBUG)
 
 def get_db_connection():
     conn = sqlite3.connect('database.db')
@@ -46,6 +51,8 @@ ngrok.set_auth_token(os.environ['token'])
 token = os.environ['token']
 ytdl = YoutubeDL(ytdl_options)
 app = Flask(__name__)
+app.config["DEBUG"] = os.environ.get("FLASK_DEBUG", True)
+app.config["JSON_AS_ASCII"] = False
 app.config['SECRET_KEY'] = 'dev'
 app.config.from_mapping(
         BASE_URL="http://localhost:5000",
@@ -54,6 +61,7 @@ port = sys.argv[sys.argv.index("--port") + 1] if "--port" in sys.argv else 5000
 public_url = ngrok.connect(port).public_url
 print("Running with ngrok token: %s" % token)
 print(" * ngrok tunnel \"{}\" -> \"http://127.0.0.1:{}\"".format(public_url, port))
+
 @app.route('/')
 def index():
     conn = get_db_connection()
@@ -61,6 +69,15 @@ def index():
     conn.close()
     return render_template('index.html', posts=posts)
 
+@app.route('/progress')
+def progress():
+    def generate():
+        x = 0
+        while x <= 100:
+            yield "data:" + str(x) + "\n\n"
+            x = x + 10
+            time.sleep(0.5)
+    return Response(generate(), mimetype= 'text/event-stream')
 
 @app.route('/create', methods=('GET', 'POST'))
 def create():
@@ -91,6 +108,23 @@ def delete(id):
     flash('"{}" was successfully deleted!'.format(post['title']))
     return redirect(url_for('index'))
 
+
+@app.route('/log')
+def progress_log():
+	def generate():
+		for line in Pygtail(LOG_FILE, every_n=1):
+			yield "data:" + str(line) + "\n\n"
+			time.sleep(0.5)
+	return Response(generate(), mimetype= 'text/event-stream')
+
+@app.route('/env')
+def show_env():
+	log.info("route =>'/env' - hit")
+	env = {}
+	for k,v in request.environ.items(): 
+		env[k] = str(v)
+	log.info("route =>'/env' [env]:\n%s" % env)
+	return env
 
 @app.route("/logs", methods=["GET"])
 def logstream():
