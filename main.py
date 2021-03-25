@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, url_for, flash, redirect, Response
-from pyngrok import ngrok
 from pygtail import Pygtail
 from flask_ask import Ask, question, statement, convert_errors, audio
 from youtube_dl import YoutubeDL
@@ -47,8 +46,7 @@ ytdl_options = {
     'default_search': 'auto',
     'source_address': ip
 }
-ngrok.set_auth_token(os.environ['token'])
-token = os.environ['token']
+
 ytdl = YoutubeDL(ytdl_options)
 app = Flask(__name__)
 app.config["DEBUG"] = os.environ.get("FLASK_DEBUG", True)
@@ -57,10 +55,21 @@ app.config['SECRET_KEY'] = 'dev'
 app.config.from_mapping(
         BASE_URL="http://localhost:5000",
 )
+
 port = sys.argv[sys.argv.index("--port") + 1] if "--port" in sys.argv else 5000
-public_url = ngrok.connect(port).public_url
-print("Running with ngrok token: %s" % token)
-print(" * ngrok tunnel \"{}\" -> \"http://127.0.0.1:{}\"".format(public_url, port))
+if app.config.get("ENV") == "development" and app.config["USE_NGROK"]:
+        # pyngrok will only be installed, and should only ever be initialized, in a dev environment
+        from pyngrok import ngrok
+
+        # Get the dev server port (defaults to 5000 for Flask, can be overridden with `--port`
+        # when starting the server
+        port = sys.argv[sys.argv.index("--port") + 1] if "--port" in sys.argv else 5000
+        ngrok.set_auth_token(os.environ['token'])
+        token = os.environ['token']
+
+        # Open a ngrok tunnel to the dev server
+        public_url = ngrok.connect(port).public_url
+        print(" * ngrok tunnel \"{}\" -> \"http://127.0.0.1:{}\"".format(public_url, port))
 
 @app.route('/')
 def index():
