@@ -12,7 +12,7 @@ with open(os.path.join(here, 'README.rst')) as f:
     README = f.read()
 
 setup(name='youtube_alexa_python',
-      version='1.2.5',
+      version='1.2.6',
       description='youtube for alexa',
       long_description=README,
       author='andrewstech',
