@@ -26,11 +26,11 @@ const features = [
     ),
   },
   {
-    title: 'Powered by Voiceflow',
-    imageUrl: 'img/voiceflow.svg',
+    title: 'Powered by Python',
+    imageUrl: 'https://www.python.org/static/community_logos/python-logo-generic.svg',
     description: (
       <>
-        Drag and drop alexa skill builder.
+        Written in Python3.7.
       </>
     ),
   },
