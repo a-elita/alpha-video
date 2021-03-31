@@ -8,8 +8,11 @@ For this project you will need a machine on 24/7. This could be a full computer 
 
 # Install Docker
 
-[Install for Mac](https://desktop.docker.com/mac/stable/Docker.dmg)
-[Install for Windows](https://desktop.docker.com/win/stable/Docker%20Desktop%20Installer.exe)
-[Install for Linux](https://docs.docker.com/engine/install)
+[Install for Mac](https://desktop.docker.com/mac/stable/Docker.dmg).
+
+[Install for Windows](https://desktop.docker.com/win/stable/Docker%20Desktop%20Installer.exe).
+
+[Install for Linux](https://docs.docker.com/engine/install).
+
 
 
