@@ -1,7 +1,7 @@
 ---
 id: doc3
-title: ngrok
-sidebar_label: ngrok
+title: Ngrok
+sidebar_label: Ngrok
 ---
 
 For this project you will need a ngrok account. Ngrok allows opening the skill to the internet without portforwarding. This is required as alexa will only allow requests to be sent to valid domains.
@@ -14,4 +14,4 @@ In this case ngrok will  give us a free random subname to use.
 Copy this down as we will need this later.
 
 
-:::tip On the free plan Ngrok will give you a diffrent subname on every restart. :::
+:::tip On the free plan Ngrok will give you a diffrent subname on every restart. 
