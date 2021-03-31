@@ -5,6 +5,8 @@
 
 [![Python](https://github.com/unofficial-skills/youtube-alexa-python/actions/workflows/python.yml/badge.svg)](https://github.com/unofficial-skills/youtube-alexa-python/actions/workflows/python.yml)
 
+[![Build Status](https://dev.azure.com/andrewstech-youtube/alpha-video-python/_apis/build/status/unofficial-skills.alpha-video?branchName=setup)](https://dev.azure.com/andrewstech-youtube/alpha-video-python/_build/latest?definitionId=4&branchName=setup)
+
 ## Run in docker
 
 
