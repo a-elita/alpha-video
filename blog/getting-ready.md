@@ -8,4 +8,4 @@ author_image_url: https://avatars1.githubusercontent.com/u/45342431?s=460&u=e2d8
 tags: [hello, youtube]
 ---
 
-The New skill has been under development for over 2 weeks now and has had an active beta test for over a week with some good feed back. The main job left to do is finish the documentation for release.
+The New skill has been under development for over 2 weeks now and has had an active beta test for over a week with some good feedback. The main job left to do is finish the documentation for release.
