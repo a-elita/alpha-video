@@ -126,7 +126,7 @@ def logstream():
     return render_template('logs.html')
 
 
-ask = Ask(app, '/alexa_youtube')
+ask = Ask(app, '/api')
 
 logging.getLogger('flask_ask').setLevel(logging.DEBUG)
 
