@@ -56,20 +56,6 @@ app.config.from_mapping(
         BASE_URL="http://localhost:5000",
 )
 
-port = sys.argv[sys.argv.index("--port") + 1] if "--port" in sys.argv else 5000
-if app.config.get("ENV") == "development" and app.config["USE_NGROK"]:
-        # pyngrok will only be installed, and should only ever be initialized, in a dev environment
-        from pyngrok import ngrok
-
-        # Get the dev server port (defaults to 5000 for Flask, can be overridden with `--port`
-        # when starting the server
-        port = sys.argv[sys.argv.index("--port") + 1] if "--port" in sys.argv else 5000
-        ngrok.set_auth_token(os.environ['token'])
-        token = os.environ['token']
-
-        # Open a ngrok tunnel to the dev server
-        public_url = ngrok.connect(port).public_url
-        print(" * ngrok tunnel \"{}\" -> \"http://127.0.0.1:{}\"".format(public_url, port))
 
 @app.route('/')
 def index():
