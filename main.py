@@ -9,6 +9,7 @@ import datetime
 import os
 import sys
 import time
+import pyfiglet
 
 ip = '0.0.0.0'  # System Ip
 host = '0.0.0.0'  # doesn't require anything else since we're using ngrok
@@ -55,12 +56,9 @@ app.config['SECRET_KEY'] = 'dev'
 app.config.from_mapping(
         BASE_URL="http://localhost:5000",
 )
-print "     /\   | |    |  __ \| |  | |   /\     \ \    / /_   _|  __ \|  ____/ __ \ "
-print "	   /  \  | |    | |__) | |__| |  /  \     \ \  / /  | | | |  | | |__ | |  | |"
-print "	  / /\ \ | |    |  ___/|  __  | / /\ \     \ \/ /   | | | |  | |  __|| |  | |"
-print "	 / ____ \| |____| |    | |  | |/ ____ \     \  /   _| |_| |__| | |___| |__| |"
-print "	/_/    \_\______|_|    |_|  |_/_/    \_\     \/   |_____|_____/|______\____/ "
-                                                                             
+ascii_banner = pyfiglet.figlet_format("ALPHA VIDEO")
+print(ascii_banner)
+print("By AndrewsTech")
 
 
 @app.route('/')
@@ -230,3 +228,5 @@ def edit(id):
 
 
 app.run(host=host, port=port)
+
+# Made by andrewstech https://github.com/unofficial-skills/alpha-video/
