@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, url_for, flash, redirect, Response
 from pygtail import Pygtail
-from Flask-PyNgrok import PyNgrok
+from flaskngrok import PyNgrok
 from flask_ask import Ask, question, statement, convert_errors, audio
 from youtube_dl import YoutubeDL
 from werkzeug.exceptions import abort
