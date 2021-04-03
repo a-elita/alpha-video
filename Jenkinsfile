@@ -6,7 +6,9 @@ node {
       }     
       stage('Build image') {         
        
-            app = docker.build("andrewstech/alpha-video")    
+            sh 'docker buildx build \
+--push \
+--platform linux/arm/v7,linux/arm64/v8,linux/amd64 \ --tag andrewstech/alpha-video:dev .'
        }     
       stage('Test image') {           
             app.inside {            
