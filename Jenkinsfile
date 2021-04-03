@@ -6,9 +6,7 @@ node {
       }     
       stage('Build image') {         
        
-            sh 'docker buildx build \
---push \
---platform linux/arm/v7,linux/arm64/v8,linux/amd64 \ --tag andrewstech/alpha-video:dev .'
+            sh 'docker buildx build \ --push \ --platform linux/arm/v7,linux/arm64/v8,linux/amd64 \ --tag andrewstech/alpha-video:dev .'
        }     
       stage('Test image') {           
             app.inside {            
