@@ -5,7 +5,6 @@ COPY requirements.txt requirements.txt
 RUN python3 -m pip install pip==9.0.3
 RUN pip install wheel setuptools
 RUN pip install -r requirements.txt
-RUN pip install git+https://github.com/andrewstech/Flask-PyNgrok.git
 COPY . .
 EXPOSE 5000
 ENV FLASK_ENV=development
