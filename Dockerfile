@@ -8,4 +8,6 @@ RUN pip install -r requirements.txt
 RUN pip install git+https://github.com/andrewstech/Flask-PyNgrok.git
 COPY . .
 EXPOSE 5000
+ENV FLASK_ENV=development
+ENV FLASK_APP=main.py
 CMD [ "python3", "main.py"]
