@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, url_for, flash, redirect, Response
 from pygtail import Pygtail
+from Flask-PyNgrok import PyNgrok
 from flask_ask import Ask, question, statement, convert_errors, audio
 from youtube_dl import YoutubeDL
 from werkzeug.exceptions import abort
@@ -10,6 +11,8 @@ import os
 import sys
 import time
 import pyfiglet
+
+pyngrok = PyNgrok()
 
 ip = '0.0.0.0'  # System Ip
 host = '0.0.0.0'  # doesn't require anything else since we're using ngrok
@@ -56,6 +59,8 @@ app.config['SECRET_KEY'] = 'dev'
 app.config.from_mapping(
         BASE_URL="http://localhost:5000",
 )
+pyngrok.init_app(app)
+
 ascii_banner = pyfiglet.figlet_format("ALPHA VIDEO")
 print(ascii_banner)
 print("By AndrewsTech")
