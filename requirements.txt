@@ -8,3 +8,5 @@ youtube_dl
 flask-ask
 pyngrok
 pygtail
+pyfiglet
+setuptools
