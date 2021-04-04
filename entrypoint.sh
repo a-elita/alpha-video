@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 echo "Starting Alpha-Video"
 python /app/main.py > /var/log/alpha-video.log&
 echo "Starting Supervisord"
