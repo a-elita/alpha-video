@@ -17,7 +17,7 @@ Setup Instructions are Not currently available
 Cloud hosting such as heroku is not recommended
 :::
 
-What is Youtube for Alexa DIY? A skill to stream audio from Youtube to Your Alexa.
+What is Alpha-Video? A skill to stream audio from Youtube to Your Alexa.
 
 Any Questions ask them on Discord
 
