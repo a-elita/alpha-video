@@ -7,6 +7,10 @@
 
 [![Build Status](https://dev.azure.com/andrewstech-youtube/alpha-video-python/_apis/build/status/unofficial-skills.alpha-video?branchName=setup)](https://dev.azure.com/andrewstech-youtube/alpha-video-python/_build/latest?definitionId=4&branchName=setup)
 
+## DOCS
+
+Please visit the docs by clicking [here](https://alpha-video.andrewstech.me/)
+
 ## Run in docker
 
 
