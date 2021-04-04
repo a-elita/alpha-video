@@ -6,7 +6,7 @@ echo "  / /\ \ | |    |  ___/|  __  | / /\ \     \ \/ /   | | | |  | |  __|| |  
 echo " / ____ \| |____| |    | |  | |/ ____ \     \  /   _| |_| |__| | |___| |__| |"
 echo "/_/    \_\______|_|    |_|  |_/_/    \_\     \/   |_____|_____/|______\____/ "
 
-
+echo "For support please visit the Github Project or send a message on our Discord server."
 echo "Starting Alpha-Video"
 python /app/main.py > /var/log/alpha-video.log&
 echo "Starting Supervisord"
