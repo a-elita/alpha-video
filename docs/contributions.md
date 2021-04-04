@@ -5,7 +5,7 @@ sidebar_label: contributions
 slug: /contributions
 ---
 
-### contributions
+### contributions!
 
 [Andrewstech](http://www.github/andrewstech.com).
 
