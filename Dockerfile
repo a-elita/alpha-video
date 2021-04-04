@@ -5,6 +5,7 @@ COPY requirements.txt requirements.txt
 RUN python3 -m pip install pip==9.0.3
 RUN pip install wheel setuptools
 RUN pip install -r requirements.txt
+RUN npm install -g localtunnel
 COPY . .
 EXPOSE 5000
 ENV FLASK_ENV=development
