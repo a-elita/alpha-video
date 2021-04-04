@@ -1,5 +1,5 @@
 FROM python:3.7.10-alpine3.13
-RUN apk update && apk add libressl-dev postgresql-dev libffi-dev gcc musl-dev python3-dev git nodejs npm
+RUN apk update && apk add libressl-dev postgresql-dev libffi-dev gcc musl-dev python3-dev git nodejs npm nano wget curl net-tools unzip supervisor screen
 WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN python3 -m pip install pip==9.0.3
