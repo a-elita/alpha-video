@@ -6,10 +6,10 @@ RUN python3 -m pip install pip==9.0.3
 RUN pip install wheel setuptools
 RUN pip install -r requirements.txt
 RUN npm install -g localtunnel
-COPY . .
+COPY . /app
 EXPOSE 5000
 ENV FLASK_ENV=development
 ENV FLASK_APP=main.py
-RUN chmod 777 entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
 COPY supervisord.conf /etc/supervisor/supervisord.conf
-CMD [ "./entrypoint.sh"]
+CMD [ "/app/entrypoint.sh"]
