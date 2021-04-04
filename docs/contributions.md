@@ -9,6 +9,6 @@ slug: /contributions
 
 [Andrewstech](http://www.github/andrewstech.com).
 
-[Minecrosters](https://github.com/minecrosters)
+[Minecrosters](https://github.com/minecrosters).
 
 
