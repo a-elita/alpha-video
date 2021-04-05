@@ -9,10 +9,6 @@ slug: /
 
 
 
-:::warning 
-Setup Instructions are Not currently available
-:::
-
 :::tip 
 Cloud hosting such as heroku is not recommended
 :::
