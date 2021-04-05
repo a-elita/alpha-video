@@ -1,17 +1,18 @@
 ---
 id: doc3
-title: Ngrok
-sidebar_label: Ngrok
+title: Add the skill to docker
+sidebar_label: Add the skill to docker
 ---
 
-For this project you will need a ngrok account. Ngrok allows opening the skill to the internet without portforwarding. This is required as alexa will only allow requests to be sent to valid domains.
-In this case ngrok will  give us a free random subname to use.
+Once Docker is fully installed and running. Open a terminal on your device. I use powershell on windows. 
 
-# Create the account
+There is a few different versions of the docker image use the command bellow that matches your language. 
 
-[Click here](https://dashboard.ngrok.com/signup) to signup for ngrok. Once your account is setup scrole down to find your auth token. If you can't see it then click [here](https://dashboard.ngrok.com/get-started/your-authtoken).
+English: docker run -d --restart unless-stopped --name alpha-video -p 5000:5000 andrewstech/alpha-video:latest
 
-Copy this down as we will need this later.
+More lanugages to come.
+
+That command downloads the latest version of the code and runs it in a virtual environment.
 
 
-:::tip On the free plan Ngrok will give you a diffrent subname on every restart. 
+
