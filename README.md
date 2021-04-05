@@ -14,7 +14,3 @@
 
 Please visit the docs by clicking [here](https://alpha-video.andrewstech.me/)
 
-## Run in docker
-
-
-docker run -d --restart unless-stopped --name alpha-video -p 5000:5000 -e token=12345 andrewstech/alpha-video:latest
