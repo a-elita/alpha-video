@@ -1,7 +1,7 @@
 ---
 id: doc3
-title: Add the skill to docker
-sidebar_label: Add the skill to docker
+title: Install
+sidebar_label: Install
 ---
 
 Once Docker is fully installed and running. Open a terminal on your device. I use powershell on windows. 
