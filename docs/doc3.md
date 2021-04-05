@@ -19,9 +19,17 @@ The part of the command which says changeme, change this to somthing unique to y
 
 Run ``` docker logs ``` followed by the number you just copyed. For example ``` docker logs 3493783796b56777987287120c5e3d4defa418d58825d22aa7b1a7c96dfa6604 ```.
 
-This should show the logs of the skill and at the botten you should see the line ``` your url is: ```
+This should show the logs of the skill and at the bottom you should see the line ``` your url is: ``` Followed by the url. If your unique domain is available it should dissplay your unique-domain followed by .loca.lt. If it was not available it would have generated a random one. If the domain is a random one then it will change on every startup.
 
+Copy this down as you will need this later. 
 
+:::tip 
+If you wish to change the domain then run the command. docker stop followed the container id . Example docker stop 3493783796b56777987287120c5e3d4defa418d58825d22aa7b1a7c96dfa6604
+
+Then run the same command but change stop to rm to delete it.
+
+You can now start from the Top
+:::
 
 
 
