@@ -8,11 +8,8 @@ Once Docker is fully installed and running. Open a terminal on your device. I us
 
 There is a few different versions of the docker image use the command bellow that matches your language. 
 
-English: 'docker run -d --restart unless-stopped --name alpha-video -p 5000:5000 andrewstech/alpha-video:latest'
+English: ```jsx docker run -d --restart unless-stopped --name alpha-video -p 5000:5000 andrewstech/alpha-video:latest ```
 
-```jsx
-    console.log('Every repo must come with a mascot.');
-    ```
 
 More lanugages to come.
 
