@@ -119,6 +119,12 @@ def progress_log():
 			time.sleep(0.5)
 	return Response(generate(), mimetype= 'text/event-stream')
 
+@app.route('/url')
+def url_pro():
+    with open("/tmp/supervisord.log", "r") as f:
+        content = f.read()
+    return render_template('url.html', content=content)
+
 @app.route('/env')
 def show_env():
 	log.info("route =>'/env' - hit")
