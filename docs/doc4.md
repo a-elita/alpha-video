@@ -10,7 +10,14 @@ Make sure to sign in with the amazon account you use with alexa. Once signed in 
 On the next page choose start from scratch.  On the left side click on endpoints. Now scroll down and click on https. Now in the Default Region box paste your domain. Make sure it starts with https. Add /api to the end of the domain. 
 
 The domain should now look like this ``` https://pretty-mayfly-37.loca.lt/api ``` . In the dropdown box below make sure to select  ``` My development endpoint is a sub-domain of a domain that has a wildcard certificate from a certificate authority ```.
-Once
+Once done click the save endpoints button. Now on the left click on interfaces. On the interfaces page turn on audio player and video app then the save interfaces button at the top.
 
+Now on the left click Interaction Model this will open a small menu on the side. Click jason JSON Editor this will take you to the Editor page. 
+
+We now need to upload our interaction.json file, currently only English is avalible. Click in the box and delete all the text.
+
+:::tip 
+If you are using windows you can press CTRL + A to select all the text the delete key to remove it.
+:::
 
 
