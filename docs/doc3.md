@@ -10,6 +10,10 @@ There is a few different versions of the docker image use the command bellow tha
 
 English: 'docker run -d --restart unless-stopped --name alpha-video -p 5000:5000 andrewstech/alpha-video:latest'
 
+```jsx
+    console.log('Every repo must come with a mascot.');
+    ```
+
 More lanugages to come.
 
 That command downloads the latest version of the code and runs it in a virtual environment.
