@@ -146,7 +146,7 @@ logging.getLogger('flask_ask').setLevel(logging.DEBUG)
 
 @ask.launch
 def launch():
-    return question('Say an artist and/or song name')
+    return question('Sage einen Künstler und / oder Songnamen')
 
 
 @ask.session_ended
