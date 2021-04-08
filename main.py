@@ -61,7 +61,7 @@ app.config.from_mapping(
 
 ascii_banner = pyfiglet.figlet_format("ALPHA VIDEO")
 print(ascii_banner)
-print("By AndrewsTech")
+print("Von AndrewsTech")
 
 
 @app.route('/')
@@ -166,35 +166,35 @@ def handle_stop_intent():
 
 @ask.intent('AMAZON.PauseIntent')
 def handle_pause_intent():
-    return audio('Stopping music').stop()
+    return audio('Musik stoppen').stop()
 
 
 @ask.intent('AMAZON.ResumeIntent')
 def resume():
-    return audio('Resuming.').resume()
+    return audio('Fortsetzen.').resume()
 
 
 @ask.intent('AMAZON.FallbackIntent')
 def handle_fallback_intent():
-    return question('you have to start your command with play, search, or look for')
+    return question('Der Befehl muss mit Spiele oder Suche nach beginnen')
 
 
 @ask.intent('AMAZON.HelpIntent')
 def handle_help_intent():
-    return question('you have to start your command with play, search, or look for')
+    return question('Der Befehl muss mit Spiele oder Suche nach beginnen')
 
 
 @ask.intent('QueryIntent', mapping={'query': 'Query'})
 def handle_query_intent(query):
 
     if not query or 'query' in convert_errors:
-        return question('Say an artist and/or song name')
+        return question('Sage einen Künstler und / oder Songnamen')
 
     data = ytdl.extract_info(f"ytsearch:{query}", download=False)
     search_results = data['entries']
 
     if not search_results:
-        return question('no results found, try another search query')
+        return question('Keine Ergebnisse gefunden. Versuche es mit einer anderen Suchabfrage')
 
     result = search_results[0]
     song_name = result['title']
@@ -203,9 +203,9 @@ def handle_query_intent(query):
     for format_ in result['formats']:
         if format_['ext'] == 'm4a':
             mp3_url = format_['url']
-            return audio(f'now playing {song_name} by {channel_name}').play(mp3_url)
+            return audio(f'Jetzt läuft {song_name} Von {channel_name}').play(mp3_url)
 
-    return question('no results found, try another search query')
+    return question('Keine Ergebnisse gefunden. Versuche es mit einer anderen Suchabfrage')
 
 
 @app.route('/<int:post_id>')
