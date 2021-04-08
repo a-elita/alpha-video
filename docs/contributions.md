@@ -7,8 +7,8 @@ slug: /contributions
 
 ### contributions!
 
-[Andrewstech](http://www.github/andrewstech.com).
+[Andrewstech](http://www.github/andrewstech.com) - Main Dev
 
-[Minecrosters](https://github.com/minecrosters).
+[Minecrosters](https://github.com/minecrosters) - Main Dev
 
 
