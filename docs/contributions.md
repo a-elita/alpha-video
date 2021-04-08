@@ -11,4 +11,6 @@ slug: /contributions
 
 [Minecrosters](https://github.com/minecrosters) - Main Dev
 
+[Patrickbs96](https://github.com/patrickbs96) - Translated skill to German language
+
 
