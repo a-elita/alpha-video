@@ -10,6 +10,8 @@ There is a few different versions of the docker image use the command bellow tha
 
 English: ``` docker run -d --restart unless-stopped --name alpha-video -p 5000:5000 -e subdomain=changeme andrewstech/alpha-video:latest ```
 
+German: ``` docker run -d --restart unless-stopped --name alpha-video -p 5000:5000 -e subdomain=changeme andrewstech/alpha-video:german ```
+
 
 More lanugages to come.
 
